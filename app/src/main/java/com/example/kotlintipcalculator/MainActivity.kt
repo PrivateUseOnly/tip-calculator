@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateTip(): Double {
         val percent = getTips()
-        val stringInTextField = binding.plainTextInput.text.toString()
+        val stringInTextField = binding.costOfServiceEditText.text.toString()
         val cost = stringInTextField.toDoubleOrNull()
         if (cost == null) {
             binding.result.text = ""
