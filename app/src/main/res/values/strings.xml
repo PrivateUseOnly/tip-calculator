@@ -13,4 +13,6 @@
 
     <string name="primary_color">Primary color</string>
     <string name="secondary_color">Secondary color</string>
+    <string name="tip_icon">tip_image</string>
+    <string name="round_up_icon">round_up_icon</string>
 </resources>

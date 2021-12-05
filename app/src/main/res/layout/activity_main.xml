@@ -7,13 +7,26 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/icon_cost_of_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/costs"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/ic_outline_store"
+        app:layout_constraintEnd_toStartOf="@id/cost_of_service"
+        app:layout_constraintTop_toTopOf="@id/cost_of_service"
+        app:layout_constraintBottom_toBottomOf="@id/cost_of_service" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cost_of_service"
+        style="@style/Widget.kotlin_tip_calculator.TextView"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="@string/costs"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@id/icon_cost_of_service"
-        app:layout_constraintTop_toTopOf="@id/icon_cost_of_service">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cost_of_service_edit_text"
@@ -23,14 +36,27 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <ImageView
+        android:id="@+id/tip_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_room_service_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tip_options"
+        app:layout_constraintBottom_toBottomOf="@id/tip_options"
+        android:contentDescription="@string/tip_icon" />
+
     <RadioGroup
         android:id="@+id/tip_options"
+        style="@style/Widget.kotlin_tip_calculator.CompoundButton.RadioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checkedButton="@id/option_amazing"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service">
+        app:layout_constraintStart_toEndOf="@id/tip_image"
+        app:layout_constraintTop_toBottomOf="@id/question"
+        android:layout_marginStart="16dp">
 
         <RadioButton
             android:id="@+id/option_amazing"
@@ -51,16 +77,28 @@
             android:text="@string/ok_15" />
     </RadioGroup>
 
+    <ImageView
+        android:id="@+id/round_icon"
+        android:contentDescription="@string/round_up_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_call_made_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/round_up_switch"
+        app:layout_constraintBottom_toBottomOf="@id/round_up_switch"/>
+
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/round_up_switch"
+        style="@style/Widget.kotlin_tip_calculator.CompoundButton.Switch"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:checked="true"
         android:text="@string/round_up"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/round_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_options"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        android:layout_marginStart="16dp"/>
 
     <Button
         android:id="@+id/calculateBtn"
@@ -73,20 +111,21 @@
 
     <TextView
         android:id="@+id/result"
+        style="@style/Widget.kotlin_tip_calculator.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_tip"
         app:layout_constraintTop_toBottomOf="@id/calculateBtn"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ImageView
-        android:id="@+id/icon_cost_of_service"
+    <TextView
+        android:id="@+id/question"
+        style="@style/Widget.kotlin_tip_calculator.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_outline_store"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/costs"/>
+        android:text="@string/question"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
+        app:layout_constraintStart_toStartOf="@id/cost_of_service" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
